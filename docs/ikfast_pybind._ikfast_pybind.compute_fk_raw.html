@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>_ikfast_pybind.compute_fk_raw - IKFast Python Bindings 文档</title>
+  <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar-drawer">
+      <div class="sidebar-container">
+        <div class="sidebar-sticky">
+          <a class="sidebar-brand" href="index.html">
+            <span class="sidebar-brand-text">IKFast Python Bindings 文档</span>
+          </a>
+          <div class="sidebar-scroll">
+            <div class="sidebar-tree">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">首页</a></li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="index.html#api-reference">API 参考</a>
+                  <ul>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_ik.html"><span class="api-indicator api-public"></span>compute_ik</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_fk.html"><span class="api-indicator api-public"></span>compute_fk</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><span class="api-indicator api-public"></span>get_solver_info</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolution.html"><span class="api-indicator api-public"></span>IkSolution</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><span class="api-indicator api-public"></span>IkSolutionList</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_ik_raw.html"><span class="api-indicator api-internal"></span>compute_ik_raw</a></li>
+                    <li class="toctree-l2 current"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_fk_raw.html"><span class="api-indicator api-internal"></span>compute_fk_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_joints.html"><span class="api-indicator api-internal"></span>get_num_joints</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_free_parameters.html"><span class="api-indicator api-internal"></span>get_num_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_free_parameters.html"><span class="api-indicator api-internal"></span>get_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><span class="api-indicator api-internal"></span>get_ik_type</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_kinematics_hash.html"><span class="api-indicator api-internal"></span>get_kinematics_hash</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ikfast_version.html"><span class="api-indicator api-internal"></span>get_ikfast_version</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="content">
+        <article role="main">
+          <section id="ikfast-pybind-compute-fk-raw">
+            <h1>_ikfast_pybind.compute_fk_raw<a class="headerlink" href="#ikfast-pybind-compute-fk-raw" title="永久链接至标题">¶</a></h1>
+            
+            <div class="admonition warning">
+              <p class="admonition-title"><span class="api-indicator api-internal"></span>内部 API</p>
+              <p>此函数是底层 C++ 绑定接口，供内部实现使用。<strong>推荐使用高级 API</strong> <a class="reference internal" href="ikfast_pybind.compute_fk.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_fk()</span></code></a> 代替。</p>
+            </div>
+
+            <dl class="py function">
+              <dt class="sig sig-object py">
+                <span class="sig-prename descclassname"><span class="pre">_ikfast_pybind.</span></span>
+                <span class="sig-name descname"><span class="pre">compute_fk_raw</span></span>
+                <span class="sig-paren">(</span>
+                <em class="sig-param"><span class="n"><span class="pre">joint_angles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span></span></em>
+                <span class="sig-paren">)</span>
+                <span class="w"> </span>
+                <span class="sig-return">
+                  <span class="sig-return-icon">→</span>
+                  <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></span>
+                </span>
+              </dt>
+              <dd>
+                <p>底层正运动学计算函数（C++ 绑定）。</p>
+                <p>此函数直接调用 IKFast C++ 求解器计算正运动学。与高级 API <code class="docutils literal notranslate"><span class="pre">compute_fk()</span></code> 不同，此函数返回展平的旋转矩阵而不是 3x3 矩阵。</p>
+                
+                <dl class="field-list simple">
+                  <dt class="field-odd">参数<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p><strong>joint_angles</strong> (<em>np.ndarray</em>) – 关节角度数组，形状为 (num_joints,)</p>
+                  </dd>
+                  <dt class="field-even">返回<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <ul class="simple">
+                      <li><p><strong>translation</strong> (<em>np.ndarray</em>) – 末端执行器位置，形状为 (3,)</p></li>
+                      <li><p><strong>rotation_flat</strong> (<em>np.ndarray</em>) – 末端执行器旋转矩阵（展平），形状为 (9,)</p></li>
+                    </ul>
+                  </dd>
+                  <dt class="field-odd">返回类型<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p>Tuple[np.ndarray, np.ndarray]</p>
+                  </dd>
+                  <dt class="field-even">异常<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <p><strong>ValueError</strong> – 如果 joint_angles 形状不正确</p>
+                  </dd>
+                </dl>
+
+                <p class="rubric">与高级 API 的区别</p>
+                <table class="docutils align-default">
+                  <thead>
+                    <tr>
+                      <th>特性</th>
+                      <th>compute_fk_raw()</th>
+                      <th>compute_fk()</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>旋转输出格式</td>
+                      <td>展平数组 (9,)</td>
+                      <td>矩阵 (3, 3)</td>
+                    </tr>
+                    <tr>
+                      <td>使用便利性</td>
+                      <td>需要手动重塑矩阵</td>
+                      <td>直接返回可用的矩阵</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="rubric">示例</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 使用底层 API</span>
+<span class="n">joints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">translation</span><span class="p">,</span> <span class="n">rotation_flat</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">_ikfast_pybind</span><span class="o">.</span><span class="n">compute_fk_raw</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;位置: </span><span class="si">{</span><span class="n">translation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;旋转（展平）: </span><span class="si">{</span><span class="n">rotation_flat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 需要手动重塑为矩阵</span>
+<span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">rotation_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;旋转矩阵:</span><span class="se">\n</span><span class="si">{</span><span class="n">rotation_matrix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 推荐：使用高级 API 更简单</span>
+<span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_fk</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>  <span class="c1"># 直接返回矩阵</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;旋转矩阵:</span><span class="se">\n</span><span class="si">{</span><span class="n">rotation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre>
+                  </div>
+                </div>
+
+                <p class="rubric">参见</p>
+                <ul class="simple">
+                  <li><p><a class="reference internal" href="ikfast_pybind.compute_fk.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_fk</span></code></a> - 推荐的高级 API</p></li>
+                </ul>
+
+              </dd>
+            </dl>
+          </section>
+        </article>
+      </div>
+      <footer>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">版权所有 © 2026 IKFast Python Bindings 项目</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>ikfast_pybind.compute_fk - IKFast Python Bindings 文档</title>
+  <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="mobile-header">
+      <div class="header-left">
+        <label class="nav-overlay-icon" for="__navigation">
+          <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        </label>
+      </div>
+      <div class="header-center">
+        <a href="index.html"><div class="brand">IKFast Python Bindings 文档</div></a>
+      </div>
+    </header>
+    <aside class="sidebar-drawer">
+      <div class="sidebar-container">
+        <div class="sidebar-sticky">
+          <a class="sidebar-brand" href="index.html">
+            <span class="sidebar-brand-text">IKFast Python Bindings 文档</span>
+          </a>
+          <div class="sidebar-scroll">
+                        <div class="sidebar-tree">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">首页</a></li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="index.html#api-reference">API 参考</a>
+                  <ul>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_ik.html"><span class="api-indicator api-public"></span>compute_ik</a></li>
+                    <li class="toctree-l2 current"><a class="reference internal" href="ikfast_pybind.compute_fk.html"><span class="api-indicator api-public"></span>compute_fk</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><span class="api-indicator api-public"></span>get_solver_info</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolution.html"><span class="api-indicator api-public"></span>IkSolution</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><span class="api-indicator api-public"></span>IkSolutionList</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_ik_raw.html"><span class="api-indicator api-internal"></span>compute_ik_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_fk_raw.html"><span class="api-indicator api-internal"></span>compute_fk_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_joints.html"><span class="api-indicator api-internal"></span>get_num_joints</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_free_parameters.html"><span class="api-indicator api-internal"></span>get_num_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_free_parameters.html"><span class="api-indicator api-internal"></span>get_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><span class="api-indicator api-internal"></span>get_ik_type</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_kinematics_hash.html"><span class="api-indicator api-internal"></span>get_kinematics_hash</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ikfast_version.html"><span class="api-indicator api-internal"></span>get_ikfast_version</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="content">
+        <article role="main">
+          <section id="ikfast-pybind-compute-fk">
+            <h1>ikfast_pybind.compute_fk<a class="headerlink" href="#ikfast-pybind-compute-fk" title="永久链接至标题">¶</a></h1>
+            
+            <dl class="py function">
+              <dt class="sig sig-object py" id="ikfast_pybind.compute_fk">
+                <span class="sig-prename descclassname"><span class="pre">ikfast_pybind.</span></span>
+                <span class="sig-name descname"><span class="pre">compute_fk</span></span>
+                <span class="sig-paren">(</span>
+                <em class="sig-param"><span class="n"><span class="pre">joint_angles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">np.ndarray</span></span></em>
+                <span class="sig-paren">)</span>
+                <span class="w"> </span>
+                <span class="sig-return">
+                  <span class="sig-return-icon">→</span>
+                  <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></span>
+                </span>
+                <a class="headerlink" href="#ikfast_pybind.compute_fk" title="永久链接至此定义">¶</a>
+              </dt>
+              <dd>
+                <p>计算给定关节配置的正运动学。</p>
+                <p>给定关节配置，此函数计算末端执行器的位姿（平移和旋转）。</p>
+                
+                <dl class="field-list simple">
+                  <dt class="field-odd">参数<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p><strong>joint_angles</strong> (<em>np.ndarray</em>) – 关节角度数组，形状为 (num_joints,)。对于 6 自由度机械臂，应该是形状为 (6,) 的数组</p>
+                  </dd>
+                  <dt class="field-even">返回<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <ul class="simple">
+                      <li><p><strong>translation</strong> (<em>np.ndarray</em>) – 末端执行器位置，形状为 (3,)，数据类型为 float64</p></li>
+                      <li><p><strong>rotation_matrix</strong> (<em>np.ndarray</em>) – 末端执行器旋转矩阵，形状为 (3, 3)，数据类型为 float64</p></li>
+                    </ul>
+                  </dd>
+                  <dt class="field-odd">返回类型<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p>Tuple[np.ndarray, np.ndarray]</p>
+                  </dd>
+                  <dt class="field-even">异常<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <ul class="simple">
+                      <li><p><strong>ValueError</strong> – 如果 joint_angles 形状不正确</p></li>
+                      <li><p><strong>TypeError</strong> – 如果输入不是类数组或无法转换为 numpy 数组</p></li>
+                    </ul>
+                  </dd>
+                </dl>
+
+                <p class="rubric">算法说明</p>
+                <p>正运动学通过连续应用齐次变换矩阵来计算末端执行器位姿。对于串联机械臂，变换链从基座到末端执行器依次应用每个关节的变换。</p>
+
+                <p class="rubric">输入验证</p>
+                <ul class="simple">
+                  <li><p>joint_angles 必须是形状为 (num_joints,) 的一维数组</p></li>
+                  <li><p>关节数量必须与求解器配置匹配（使用 get_solver_info() 查询）</p></li>
+                  <li><p>输入会自动转换为连续的 float64 数组以获得最佳性能</p></li>
+                </ul>
+
+                <p class="rubric">示例</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 基本用法 - 零位配置</span>
+<span class="n">joints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_fk</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;末端执行器位置：</span><span class="si">{</span><span class="n">translation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;末端执行器姿态：</span><span class="se">\n</span><span class="si">{</span><span class="n">rotation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 验证旋转矩阵的正交性</span>
+<span class="n">det</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="s2">&quot;旋转矩阵应该是正交的&quot;</span>
+
+<span class="c1"># 验证逆运动学解</span>
+<span class="n">target_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">target_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 计算逆运动学</span>
+<span class="n">solutions</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_ik</span><span class="p">(</span><span class="n">target_pos</span><span class="p">,</span> <span class="n">target_rot</span><span class="p">)</span>
+
+<span class="c1"># 验证每个解</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sol</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">solutions</span><span class="p">):</span>
+    <span class="n">computed_pos</span><span class="p">,</span> <span class="n">computed_rot</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_fk</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+    
+    <span class="n">pos_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">target_pos</span> <span class="o">-</span> <span class="n">computed_pos</span><span class="p">)</span>
+    <span class="n">rot_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">target_rot</span> <span class="o">-</span> <span class="n">computed_rot</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;解 </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> - 位置误差: </span><span class="si">{</span><span class="n">pos_error</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">, 姿态误差: </span><span class="si">{</span><span class="n">rot_error</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">pos_error</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s2">&quot;FK-IK 往返误差过大&quot;</span>
+
+<span class="c1"># 批量计算正运动学</span>
+<span class="n">joint_configs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">])</span>
+<span class="p">]</span>
+
+<span class="n">poses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">joints</span> <span class="ow">in</span> <span class="n">joint_configs</span><span class="p">:</span>
+    <span class="n">pos</span><span class="p">,</span> <span class="n">rot</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_fk</span><span class="p">(</span><span class="n">joints</span><span class="p">)</span>
+    <span class="n">poses</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">pos</span><span class="p">,</span> <span class="n">rot</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;计算了 </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">poses</span><span class="p">)</span><span class="si">}</span><span class="s2"> 个位姿&quot;</span><span class="p">)</span>
+</pre>
+                  </div>
+                </div>
+
+                <p class="rubric">旋转矩阵格式</p>
+                <p>返回的旋转矩阵是标准的 3x3 正交矩阵，表示末端执行器相对于基座坐标系的方向：</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="p">[[</span><span class="n">r11</span><span class="p">,</span> <span class="n">r12</span><span class="p">,</span> <span class="n">r13</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">r21</span><span class="p">,</span> <span class="n">r22</span><span class="p">,</span> <span class="n">r23</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">r31</span><span class="p">,</span> <span class="n">r32</span><span class="p">,</span> <span class="n">r33</span><span class="p">]]</span>
+</pre>
+                  </div>
+                </div>
+                <p>其中每一列代表末端执行器坐标系的一个轴在基座坐标系中的方向。</p>
+
+                <p class="rubric">性能提示</p>
+                <ul class="simple">
+                  <li><p>正运动学计算非常快速（通常 &lt; 1 微秒）</p></li>
+                  <li><p>使用连续的 float64 数组以获得最佳性能</p></li>
+                  <li><p>对于批量计算，可以在循环中重用数组</p></li>
+                  <li><p>GIL 在 C++ 计算期间释放，支持多线程</p></li>
+                </ul>
+
+                <p class="rubric">参见</p>
+                <ul class="simple">
+                  <li><p><a class="reference internal" href="ikfast_pybind.compute_ik.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ik</span></code></a> - 逆运动学计算</p></li>
+                  <li><p><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_solver_info</span></code></a> - 获取求解器配置信息</p></li>
+                </ul>
+
+              </dd>
+            </dl>
+
+          </section>
+        </article>
+      </div>
+      <footer>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+              版权所有 © 2026 IKFast Python Bindings 项目
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me/furo/">Furo</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+    </symbol>
+  </svg>
+</body>
+</html>

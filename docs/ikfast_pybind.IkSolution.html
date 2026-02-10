@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ikfast_pybind.IkSolution - IKFast Python Bindings 文档</title>
+  <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar-drawer">
+      <div class="sidebar-container">
+        <div class="sidebar-sticky">
+          <a class="sidebar-brand" href="index.html">
+            <span class="sidebar-brand-text">IKFast Python Bindings 文档</span>
+          </a>
+          <div class="sidebar-scroll">
+                        <div class="sidebar-tree">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">首页</a></li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="index.html#api-reference">API 参考</a>
+                  <ul>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_ik.html"><span class="api-indicator api-public"></span>compute_ik</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_fk.html"><span class="api-indicator api-public"></span>compute_fk</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><span class="api-indicator api-public"></span>get_solver_info</a></li>
+                    <li class="toctree-l2 current"><a class="reference internal" href="ikfast_pybind.IkSolution.html"><span class="api-indicator api-public"></span>IkSolution</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><span class="api-indicator api-public"></span>IkSolutionList</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_ik_raw.html"><span class="api-indicator api-internal"></span>compute_ik_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_fk_raw.html"><span class="api-indicator api-internal"></span>compute_fk_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_joints.html"><span class="api-indicator api-internal"></span>get_num_joints</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_free_parameters.html"><span class="api-indicator api-internal"></span>get_num_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_free_parameters.html"><span class="api-indicator api-internal"></span>get_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><span class="api-indicator api-internal"></span>get_ik_type</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_kinematics_hash.html"><span class="api-indicator api-internal"></span>get_kinematics_hash</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ikfast_version.html"><span class="api-indicator api-internal"></span>get_ikfast_version</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="content">
+        <article role="main">
+          <section id="ikfast-pybind-iksolution">
+            <h1>ikfast_pybind.IkSolution<a class="headerlink" href="#ikfast-pybind-iksolution" title="永久链接至标题">¶</a></h1>
+            <dl class="py class">
+              <dt class="sig sig-object py">
+                <em class="property"><span class="pre">class</span><span class="w"> </span></em>
+                <span class="sig-prename descclassname"><span class="pre">ikfast_pybind.</span></span>
+                <span class="sig-name descname"><span class="pre">IkSolution</span></span>
+              </dt>
+              <dd>
+                <p>单个逆运动学解，支持自由参数。</p>
+                <p>此类表示 IKFast 求解器返回的单个逆运动学解。对于冗余机器人，解可能包含自由参数，需要在获取具体关节角度时指定。</p>
+                
+                <div class="admonition note">
+                  <p class="admonition-title">注意</p>
+                  <p>大多数用户应该使用高级 <code class="docutils literal notranslate"><span class="pre">compute_ik()</span></code> 函数，它会自动处理解的转换。此类适用于需要直接访问 IKFast 求解器的高级用户。</p>
+                </div>
+
+                <p class="rubric">方法</p>
+                <table class="autosummary longtable docutils align-default">
+                  <tbody>
+                    <tr class="row-odd">
+                      <td><p><a class="reference internal" href="#ikfast_pybind.IkSolution.get_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_solution</span></code></a>(free_params)</p></td>
+                      <td><p>获取具体的关节角度</p></td>
+                    </tr>
+                    <tr class="row-even">
+                      <td><p><a class="reference internal" href="#ikfast_pybind.IkSolution.get_free_dof_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_free_dof_indices</span></code></a>()</p></td>
+                      <td><p>获取自由参数的关节索引</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <dl class="py method">
+                  <dt class="sig sig-object py" id="ikfast_pybind.IkSolution.get_solution">
+                    <span class="sig-name descname"><span class="pre">get_solution</span></span>
+                    <span class="sig-paren">(</span>
+                    <em class="sig-param"><span class="n"><span class="pre">free_params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">np.ndarray</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>
+                    <span class="sig-paren">)</span>
+                    <span class="w"> </span>
+                    <span class="sig-return">
+                      <span class="sig-return-icon">→</span>
+                      <span class="sig-return-typehint"><span class="pre">np.ndarray</span></span>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>获取具体的关节角度。</p>
+                    
+                    <dl class="field-list simple">
+                      <dt class="field-odd">参数<span class="colon">:</span></dt>
+                      <dd class="field-odd">
+                        <p><strong>free_params</strong> (<em>Optional[np.ndarray]</em>) – 自由参数值。如果机器人有冗余自由度则需要。默认为 None</p>
+                      </dd>
+                      <dt class="field-even">返回<span class="colon">:</span></dt>
+                      <dd class="field-even">
+                        <p>关节角度数组，形状为 (num_joints,)，数据类型为 float64</p>
+                      </dd>
+                      <dt class="field-odd">返回类型<span class="colon">:</span></dt>
+                      <dd class="field-odd">
+                        <p>np.ndarray</p>
+                      </dd>
+                    </dl>
+
+                    <p class="rubric">示例</p>
+                    <div class="highlight-python notranslate">
+                      <div class="highlight">
+                        <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 使用低级 API</span>
+<span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">rotation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># 获取解列表</span>
+<span class="n">solution_list</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">_ikfast_pybind</span><span class="o">.</span><span class="n">compute_ik_raw</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># 遍历每个解</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">solution_list</span><span class="p">)):</span>
+    <span class="n">solution</span> <span class="o">=</span> <span class="n">solution_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">joints</span> <span class="o">=</span> <span class="n">solution</span><span class="o">.</span><span class="n">get_solution</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;解 </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">joints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre>
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+
+                <dl class="py method">
+                  <dt class="sig sig-object py" id="ikfast_pybind.IkSolution.get_free_dof_indices">
+                    <span class="sig-name descname"><span class="pre">get_free_dof_indices</span></span>
+                    <span class="sig-paren">(</span><span class="sig-paren">)</span>
+                    <span class="w"> </span>
+                    <span class="sig-return">
+                      <span class="sig-return-icon">→</span>
+                      <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span>
+                    </span>
+                  </dt>
+                  <dd>
+                    <p>获取自由参数的关节索引。</p>
+                    
+                    <dl class="field-list simple">
+                      <dt class="field-odd">返回<span class="colon">:</span></dt>
+                      <dd class="field-odd">
+                        <p>自由参数关节的索引列表</p>
+                      </dd>
+                      <dt class="field-even">返回类型<span class="colon">:</span></dt>
+                      <dd class="field-even">
+                        <p>List[int]</p>
+                      </dd>
+                    </dl>
+
+                    <p class="rubric">示例</p>
+                    <div class="highlight-python notranslate">
+                      <div class="highlight">
+                        <pre><span></span><span class="c1"># 检查解是否有自由参数</span>
+<span class="n">free_indices</span> <span class="o">=</span> <span class="n">solution</span><span class="o">.</span><span class="n">get_free_dof_indices</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">free_indices</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;自由参数关节索引: </span><span class="si">{</span><span class="n">free_indices</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;此解没有自由参数&quot;</span><span class="p">)</span>
+</pre>
+                      </div>
+                    </div>
+                  </dd>
+                </dl>
+
+                <p class="rubric">使用场景</p>
+                <p>此类主要用于以下高级场景：</p>
+                <ul class="simple">
+                  <li><p>需要直接访问 IKFast 求解器的内部表示</p></li>
+                  <li><p>处理冗余机器人时需要精细控制自由参数</p></li>
+                  <li><p>实现自定义的解选择策略</p></li>
+                  <li><p>调试和分析求解器行为</p></li>
+                </ul>
+
+                <p class="rubric">参见</p>
+                <ul class="simple">
+                  <li><p><a class="reference internal" href="ikfast_pybind.compute_ik.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ik</span></code></a> - 推荐的高级 API</p></li>
+                  <li><p><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IkSolutionList</span></code></a> - 解的容器类</p></li>
+                </ul>
+
+              </dd>
+            </dl>
+          </section>
+        </article>
+      </div>
+      <footer>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">版权所有 © 2026 IKFast Python Bindings 项目</div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me/furo/">Furo</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

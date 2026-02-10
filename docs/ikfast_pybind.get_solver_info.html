@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ikfast_pybind.get_solver_info - IKFast Python Bindings 文档</title>
+  <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar-drawer">
+      <div class="sidebar-container">
+        <div class="sidebar-sticky">
+          <a class="sidebar-brand" href="index.html">
+            <span class="sidebar-brand-text">IKFast Python Bindings 文档</span>
+          </a>
+          <div class="sidebar-scroll">
+                        <div class="sidebar-tree">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">首页</a></li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="index.html#api-reference">API 参考</a>
+                  <ul>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_ik.html"><span class="api-indicator api-public"></span>compute_ik</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_fk.html"><span class="api-indicator api-public"></span>compute_fk</a></li>
+                    <li class="toctree-l2 current"><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><span class="api-indicator api-public"></span>get_solver_info</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolution.html"><span class="api-indicator api-public"></span>IkSolution</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><span class="api-indicator api-public"></span>IkSolutionList</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_ik_raw.html"><span class="api-indicator api-internal"></span>compute_ik_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_fk_raw.html"><span class="api-indicator api-internal"></span>compute_fk_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_joints.html"><span class="api-indicator api-internal"></span>get_num_joints</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_free_parameters.html"><span class="api-indicator api-internal"></span>get_num_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_free_parameters.html"><span class="api-indicator api-internal"></span>get_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><span class="api-indicator api-internal"></span>get_ik_type</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_kinematics_hash.html"><span class="api-indicator api-internal"></span>get_kinematics_hash</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ikfast_version.html"><span class="api-indicator api-internal"></span>get_ikfast_version</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="content">
+        <article role="main">
+          <section id="ikfast-pybind-get-solver-info">
+            <h1>ikfast_pybind.get_solver_info<a class="headerlink" href="#ikfast-pybind-get-solver-info" title="永久链接至标题">¶</a></h1>
+            <dl class="py function">
+              <dt class="sig sig-object py">
+                <span class="sig-prename descclassname"><span class="pre">ikfast_pybind.</span></span>
+                <span class="sig-name descname"><span class="pre">get_solver_info</span></span>
+                <span class="sig-paren">(</span><span class="sig-paren">)</span>
+                <span class="w"> </span>
+                <span class="sig-return">
+                  <span class="sig-return-icon">→</span>
+                  <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span>
+                </span>
+              </dt>
+              <dd>
+                <p>获取求解器信息和属性。</p>
+                <p>返回包含 IK 求解器配置信息的字典，包括关节数量、自由参数、求解器类型和版本。</p>
+                
+                <dl class="field-list simple">
+                  <dt class="field-odd">返回<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p>包含以下键的字典：</p>
+                    <ul class="simple">
+                      <li><p><strong>num_joints</strong> (int) - 机器人的关节数量</p></li>
+                      <li><p><strong>num_free_parameters</strong> (int) - 自由参数数量（如果无冗余则为 0）</p></li>
+                      <li><p><strong>free_parameters</strong> (List[int]) - 自由参数关节的索引</p></li>
+                      <li><p><strong>ik_type</strong> (int) - IK 求解器类型标识符常量</p></li>
+                      <li><p><strong>kinematics_hash</strong> (str) - 标识机器人运动学配置的哈希值</p></li>
+                      <li><p><strong>ikfast_version</strong> (str) - 用于生成求解器的 IKFast 版本</p></li>
+                    </ul>
+                  </dd>
+                  <dt class="field-even">返回类型<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <p>Dict[str, Any]</p>
+                  </dd>
+                </dl>
+
+                <p class="rubric">示例</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+
+<span class="c1"># 获取求解器信息</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+
+<span class="c1"># 打印所有信息</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;求解器信息：&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 访问特定信息</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">机器人有 </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_joints&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> 个关节&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;求解器类型：</span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;ik_type&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;运动学哈希：</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;kinematics_hash&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IKFast 版本：</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;ikfast_version&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 检查是否有冗余自由度</span>
+<span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_free_parameters&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">机器人有 </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_free_parameters&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> 个自由参数&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;自由参数索引：</span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;free_parameters&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">机器人没有冗余自由度&quot;</span><span class="p">)</span>
+</pre>
+                  </div>
+                </div>
+
+                <p class="rubric">IK 类型说明</p>
+                <p>ik_type 字段是一个整数常量，标识求解器的类型。常见的类型包括：</p>
+                <ul class="simple">
+                  <li><p>0x67000001 - Transform6D（6D 位姿）</p></li>
+                  <li><p>0x34000002 - Translation3D（3D 位置）</p></li>
+                  <li><p>0x34000003 - Direction3D（3D 方向）</p></li>
+                  <li><p>0x34000004 - Ray4D（4D 射线）</p></li>
+                </ul>
+
+                <p class="rubric">运动学哈希</p>
+                <p>kinematics_hash 是一个唯一标识符，用于验证求解器是否与特定的机器人模型匹配。如果更换了机器人模型或 DH 参数，此哈希值会改变。</p>
+
+                <p class="rubric">使用场景</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 1. 动态创建正确大小的数组</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+<span class="n">num_joints</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_joints&#39;</span><span class="p">]</span>
+<span class="n">joints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_joints</span><span class="p">)</span>
+
+<span class="c1"># 2. 验证求解器配置</span>
+<span class="k">def</span> <span class="nf">verify_solver</span><span class="p">(</span><span class="n">expected_hash</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;验证求解器是否与预期的机器人模型匹配&quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;kinematics_hash&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">expected_hash</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;求解器不匹配！&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;期望: </span><span class="si">{</span><span class="n">expected_hash</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;实际: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;kinematics_hash&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># 3. 处理冗余机器人</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_free_parameters&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># 为自由参数创建数组</span>
+    <span class="n">free_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;num_free_parameters&#39;</span><span class="p">])</span>
+    <span class="n">solutions</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_ik</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">free_params</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">solutions</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">compute_ik</span><span class="p">(</span><span class="n">translation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+
+<span class="c1"># 4. 记录求解器信息</span>
+<span class="k">def</span> <span class="nf">log_solver_info</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;记录求解器配置以便调试&quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;solver_info.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IKFast 求解器信息</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;==================</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre>
+                  </div>
+                </div>
+
+                <p class="rubric">参见</p>
+                <ul class="simple">
+                  <li><p><a class="reference internal" href="ikfast_pybind.compute_ik.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_ik</span></code></a> - 逆运动学计算</p></li>
+                  <li><p><a class="reference internal" href="ikfast_pybind.compute_fk.html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_fk</span></code></a> - 正运动学计算</p></li>
+                </ul>
+
+              </dd>
+            </dl>
+          </section>
+        </article>
+      </div>
+      <footer>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">版权所有 © 2026 IKFast Python Bindings 项目</div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me/furo/">Furo</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
