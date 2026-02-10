@@ -1,0 +1,27 @@
+# Include C++ source files
+include ikfast_pybind/_ikfast_pybind.cpp
+recursive-include src *_ikfast_solver.cpp
+include include/ikfast.h
+
+# Include documentation
+include README.md
+include README_CN.md
+include BUILD.md
+include BUILD_CN.md
+include LICENSE
+
+# Include configuration files
+include pyproject.toml
+include setup.py
+
+# Include examples
+recursive-include examples *.py
+
+# Exclude build artifacts
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.so
+global-exclude *.pyd
+global-exclude *.dll
+global-exclude *.o
+global-exclude *.obj
