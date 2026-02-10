@@ -174,23 +174,83 @@ def get_solver_info() -> Dict[str, Any]:
             - num_free_parameters (int): Number of free parameters (0 if no redundancy)
             - free_parameters (List[int]): Indices of free parameter joints
             - ik_type (int): IK solver type identifier constant
+            - ik_type_name (str): Human-readable name of the IK solver type
             - kinematics_hash (str): Hash identifying the robot kinematics configuration
             - ikfast_version (str): IKFast version used to generate the solver
     
     Example:
         >>> info = get_solver_info()
         >>> print(f"Robot has {info['num_joints']} joints")
-        >>> print(f"Solver type: {hex(info['ik_type'])}")
+        >>> print(f"Solver type: {info['ik_type_name']} ({hex(info['ik_type'])})")
         >>> print(f"Kinematics hash: {info['kinematics_hash']}")
     """
+    ik_type = _ikfast_pybind.get_ik_type()
     return {
         'num_joints': _ikfast_pybind.get_num_joints(),
         'num_free_parameters': _ikfast_pybind.get_num_free_parameters(),
         'free_parameters': _ikfast_pybind.get_free_parameters(),
-        'ik_type': _ikfast_pybind.get_ik_type(),
+        'ik_type': ik_type,
+        'ik_type_name': get_ik_type_name(ik_type),
         'kinematics_hash': _ikfast_pybind.get_kinematics_hash(),
         'ikfast_version': _ikfast_pybind.get_ikfast_version(),
     }
+
+
+def get_ik_type_name(ik_type: int) -> str:
+    """
+    Get human-readable name for IK solver type.
+    
+    Converts the IK type constant to a descriptive string that explains
+    what kind of inverse kinematics problem the solver addresses.
+    
+    Args:
+        ik_type: IK type constant (integer)
+    
+    Returns:
+        Human-readable description of the IK type
+    
+    IK Type Constants:
+        - 0x67000001: Transform6D - Complete 6D pose (position + orientation)
+        - 0x34000002: Translation3D - 3D position only, no orientation constraint
+        - 0x34000003: Direction3D - 3D direction vector
+        - 0x34000004: Ray4D - Ray (origin + direction)
+        - 0x34000005: Lookat3D - Look-at point
+        - 0x34000006: TranslationDirection5D - Position + direction
+        - 0x34000007: TranslationXY2D - XY plane position + orientation
+        - 0x34000008: TranslationXYOrientation3D - XY plane position + Z-axis orientation
+        - 0x34000009: TranslationLocalGlobal6D - Position with local/global frame
+        - 0x3400000a: TranslationXAxisAngle4D - Position + rotation around X-axis
+        - 0x3400000b: TranslationYAxisAngle4D - Position + rotation around Y-axis
+        - 0x3400000c: TranslationZAxisAngle4D - Position + rotation around Z-axis
+        - 0x3400000d: TranslationXAxisAngleZNorm4D - Position + X-axis rotation + Z normalization
+        - 0x3400000e: TranslationYAxisAngleXNorm4D - Position + Y-axis rotation + X normalization
+        - 0x3400000f: TranslationZAxisAngleYNorm4D - Position + Z-axis rotation + Y normalization
+    
+    Example:
+        >>> ik_type = 0x67000001
+        >>> print(get_ik_type_name(ik_type))
+        Transform6D (默认) - 完整的位置和姿态
+    """
+    # IK type mapping based on IKFast documentation
+    ik_types = {
+        0x67000001: "Transform6D (默认) - 完整的位置和姿态",
+        0x34000002: "Translation3D - 仅位置，无姿态约束",
+        0x34000003: "Direction3D - 方向向量",
+        0x34000004: "Ray4D - 射线（原点+方向）",
+        0x34000005: "Lookat3D - 注视点",
+        0x34000006: "TranslationDirection5D - 位置+方向",
+        0x34000007: "TranslationXY2D - XY平面位置+姿态",
+        0x34000008: "TranslationXYOrientation3D - XY平面位置+Z轴姿态",
+        0x34000009: "TranslationLocalGlobal6D - 局部/全局坐标系位置",
+        0x3400000a: "TranslationXAxisAngle4D - 位置+绕X轴旋转",
+        0x3400000b: "TranslationYAxisAngle4D - 位置+绕Y轴旋转",
+        0x3400000c: "TranslationZAxisAngle4D - 位置+绕Z轴旋转",
+        0x3400000d: "TranslationXAxisAngleZNorm4D - 位置+X轴旋转+Z归一化",
+        0x3400000e: "TranslationYAxisAngleXNorm4D - 位置+Y轴旋转+X归一化",
+        0x3400000f: "TranslationZAxisAngleYNorm4D - 位置+Z轴旋转+Y归一化",
+    }
+    
+    return ik_types.get(ik_type, f"Unknown IK Type (0x{ik_type:08x})")
 
 
 # Export public API
@@ -198,6 +258,7 @@ __all__ = [
     'compute_ik',
     'compute_fk',
     'get_solver_info',
+    'get_ik_type_name',
     'IkSolution',
     'IkSolutionList',
 ]

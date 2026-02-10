@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ikfast_pybind.get_ik_type_name - IKFast Python Bindings 文档</title>
+  <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar-drawer">
+      <div class="sidebar-container">
+        <div class="sidebar-sticky">
+          <a class="sidebar-brand" href="index.html">
+            <span class="sidebar-brand-text">IKFast Python Bindings 文档</span>
+          </a>
+          <div class="sidebar-scroll">
+            <div class="sidebar-tree">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">首页</a></li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="index.html#api-reference">API 参考</a>
+                  <ul>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_ik.html"><span class="api-indicator api-public"></span>compute_ik</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.compute_fk.html"><span class="api-indicator api-public"></span>compute_fk</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.get_solver_info.html"><span class="api-indicator api-public"></span>get_solver_info</a></li>
+                    <li class="toctree-l2 current"><a class="reference internal" href="ikfast_pybind.get_ik_type_name.html"><span class="api-indicator api-public"></span>get_ik_type_name</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolution.html"><span class="api-indicator api-public"></span>IkSolution</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind.IkSolutionList.html"><span class="api-indicator api-public"></span>IkSolutionList</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_ik_raw.html"><span class="api-indicator api-internal"></span>compute_ik_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.compute_fk_raw.html"><span class="api-indicator api-internal"></span>compute_fk_raw</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_joints.html"><span class="api-indicator api-internal"></span>get_num_joints</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_num_free_parameters.html"><span class="api-indicator api-internal"></span>get_num_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_free_parameters.html"><span class="api-indicator api-internal"></span>get_free_parameters</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><span class="api-indicator api-internal"></span>get_ik_type</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_kinematics_hash.html"><span class="api-indicator api-internal"></span>get_kinematics_hash</a></li>
+                    <li class="toctree-l2"><a class="reference internal" href="ikfast_pybind._ikfast_pybind.get_ikfast_version.html"><span class="api-indicator api-internal"></span>get_ikfast_version</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="content">
+        <article role="main">
+          <section id="ikfast-pybind-get-ik-type-name">
+            <h1>ikfast_pybind.get_ik_type_name<a class="headerlink" href="#ikfast-pybind-get-ik-type-name" title="永久链接至标题">¶</a></h1>
+            <dl class="py function">
+              <dt class="sig sig-object py">
+                <span class="sig-prename descclassname"><span class="pre">ikfast_pybind.</span></span>
+                <span class="sig-name descname"><span class="pre">get_ik_type_name</span></span>
+                <span class="sig-paren">(</span>
+                <em class="sig-param"><span class="n"><span class="pre">ik_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>
+                <span class="sig-paren">)</span>
+                <span class="w"> </span>
+                <span class="sig-return">
+                  <span class="sig-return-icon">→</span>
+                  <span class="sig-return-typehint"><span class="pre">str</span></span>
+                </span>
+              </dt>
+              <dd>
+                <p>获取 IK 求解器类型的人类可读名称。</p>
+                <p>将 IK 类型常量转换为描述性的中文字符串，解释求解器处理的逆运动学问题类型。</p>
+                
+                <dl class="field-list simple">
+                  <dt class="field-odd">参数<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p><strong>ik_type</strong> (<em>int</em>) – IK 类型常量（整数）</p>
+                  </dd>
+                  <dt class="field-even">返回<span class="colon">:</span></dt>
+                  <dd class="field-even">
+                    <p>IK 类型的人类可读描述（中文）</p>
+                  </dd>
+                  <dt class="field-odd">返回类型<span class="colon">:</span></dt>
+                  <dd class="field-odd">
+                    <p>str</p>
+                  </dd>
+                </dl>
+
+                <p class="rubric">支持的 IK 类型</p>
+                <table class="docutils align-default">
+                  <thead>
+                    <tr>
+                      <th>类型代码</th>
+                      <th>名称</th>
+                      <th>说明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>0x67000001</code></td>
+                      <td>Transform6D</td>
+                      <td>完整的位置和姿态（最常见）</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000002</code></td>
+                      <td>Translation3D</td>
+                      <td>仅位置，无姿态约束</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000003</code></td>
+                      <td>Direction3D</td>
+                      <td>方向向量</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000004</code></td>
+                      <td>Ray4D</td>
+                      <td>射线（原点+方向）</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000005</code></td>
+                      <td>Lookat3D</td>
+                      <td>注视点</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000006</code></td>
+                      <td>TranslationDirection5D</td>
+                      <td>位置+方向</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000007</code></td>
+                      <td>TranslationXY2D</td>
+                      <td>XY平面位置+姿态</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000008</code></td>
+                      <td>TranslationXYOrientation3D</td>
+                      <td>XY平面位置+Z轴姿态</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x34000009</code></td>
+                      <td>TranslationLocalGlobal6D</td>
+                      <td>局部/全局坐标系位置</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000a</code></td>
+                      <td>TranslationXAxisAngle4D</td>
+                      <td>位置+绕X轴旋转</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000b</code></td>
+                      <td>TranslationYAxisAngle4D</td>
+                      <td>位置+绕Y轴旋转</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000c</code></td>
+                      <td>TranslationZAxisAngle4D</td>
+                      <td>位置+绕Z轴旋转</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000d</code></td>
+                      <td>TranslationXAxisAngleZNorm4D</td>
+                      <td>位置+X轴旋转+Z归一化</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000e</code></td>
+                      <td>TranslationYAxisAngleXNorm4D</td>
+                      <td>位置+Y轴旋转+X归一化</td>
+                    </tr>
+                    <tr>
+                      <td><code>0x3400000f</code></td>
+                      <td>TranslationZAxisAngleYNorm4D</td>
+                      <td>位置+Z轴旋转+Y归一化</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p class="rubric">示例</p>
+                <div class="highlight-python notranslate">
+                  <div class="highlight">
+                    <pre><span></span><span class="kn">import</span> <span class="nn">ikfast_pybind</span> <span class="k">as</span> <span class="nn">ik</span>
+
+<span class="c1"># 方法1：从 get_solver_info 获取</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_solver_info</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IK 类型: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;ik_type_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;类型代码: </span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;ik_type&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 方法2：直接查询特定类型</span>
+<span class="n">type_name</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_ik_type_name</span><span class="p">(</span><span class="mh">0x67000001</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">type_name</span><span class="p">)</span>
+<span class="c1"># 输出: Transform6D (默认) - 完整的位置和姿态</span>
+
+<span class="c1"># 方法3：列出所有支持的类型</span>
+<span class="n">known_types</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mh">0x67000001</span><span class="p">,</span>  <span class="c1"># Transform6D</span>
+    <span class="mh">0x34000002</span><span class="p">,</span>  <span class="c1"># Translation3D</span>
+    <span class="mh">0x34000003</span><span class="p">,</span>  <span class="c1"># Direction3D</span>
+    <span class="mh">0x34000004</span><span class="p">,</span>  <span class="c1"># Ray4D</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ik_type</span> <span class="ow">in</span> <span class="n">known_types</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">ik</span><span class="o">.</span><span class="n">get_ik_type_name</span><span class="p">(</span><span class="n">ik_type</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">hex</span><span class="p">(</span><span class="n">ik_type</span><span class="p">)</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre>
+                  </div>
+                </div>
+
+                <p class="rubric">使用场景</p>
+                <ul class="simple">
+                  <li><p>在用户界面中显示求解器类型</p></li>
+                  <li><p>生成求解器配置报告</p></li>
+                  <li><p>调试和日志记录</p></li>
+                  <li><p>验证求解器类型是否符合预期</p></li>
+                </ul>
+
+                <p class="rubric">注意事项</p>
+                <ul class="simple">
+                  <li><p>如果传入未知的 IK 类型代码，函数会返回 "Unknown IK Type (0xXXXXXXXX)" 格式的字符串</p></li>
+                  <li><p>最常见的类型是 <code>0x67000001</code> (Transform6D)，适用于标准 6 自由度机械臂</p></li>
+                  <li><p>不同的 IK 类型需要不同的输入参数格式，请参考 <a href="ikfast_pybind.compute_ik.html">compute_ik</a> 文档</p></li>
+                </ul>
+
+                <p class="rubric">参见</p>
+                <ul class="simple">
+                  <li><p><a href="ikfast_pybind.get_solver_info.html"><code>get_solver_info</code></a> - 获取完整的求解器信息（包含 ik_type_name）</p></li>
+                  <li><p><a href="ikfast_pybind._ikfast_pybind.get_ik_type.html"><code>get_ik_type</code></a> - 获取原始 IK 类型常量</p></li>
+                </ul>
+
+              </dd>
+            </dl>
+          </section>
+        </article>
+      </div>
+      <footer>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">版权所有 © 2026 IKFast Python Bindings 项目</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
