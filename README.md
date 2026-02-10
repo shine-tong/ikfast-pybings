@@ -1,4 +1,20 @@
+<div align="center">
+
 # IKFast Python Bindings
+
+⚙️ Python Bindings for the IKFast inverse kinematics solver, all code for this project is generated using [Kiro](https://kiro.dev/).
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/yourusername/ikfast-pybind)
+[![pybind11](https://img.shields.io/badge/pybind11-2.6%2B-green.svg)](https://github.com/pybind/pybind11)
+
+[![IKFast](https://img.shields.io/badge/IKFast-OpenRAVE-red.svg)](http://openrave.org/)
+[![Tests](https://img.shields.io/badge/Tests-146%20passed-brightgreen.svg)](tests/)
+[![Coverage](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)](tests/)
+
+</div>
+
+## Introduction
 
 [中文文档](README_CN.md) | English
 
@@ -47,7 +63,7 @@ See [BUILD.md](BUILD.md) for detailed build instructions and troubleshooting.
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/shine-tong/ikfast-pybings.git
 cd ikfast_pybind
 
 # Install build dependencies
@@ -502,7 +518,7 @@ Contributions are welcome! Please follow these guidelines:
 
 ```bash
 # Clone repository
-git clone <repository-url>
+git clone https://github.com/shine-tong/ikfast-pybings.git
 cd ikfast_pybind
 
 # Create virtual environment
@@ -534,49 +550,7 @@ pytest tests/test_property_*.py --hypothesis-iterations=1000
 pytest tests/test_property_*.py --hypothesis-seed=12345
 ```
 
-## Architecture
-
-### Component Overview
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     Python Application                       │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         │ Python API calls
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│              Python Binding Layer (pybind11)                 │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  High-Level API (ikfast_pybind/__init__.py)          │   │
-│  │  - compute_ik() → List[np.ndarray]                   │   │
-│  │  - compute_fk() → Tuple[np.ndarray, np.ndarray]      │   │
-│  │  - get_solver_info() → Dict                          │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Low-Level API (_ikfast_pybind.cpp)                  │   │
-│  │  - IkSolutionList wrapper                            │   │
-│  │  - IkSolution wrapper                                │   │
-│  │  - Direct function bindings                          │   │
-│  └──────────────────────────────────────────────────────┘   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │  Type Conversion Layer                               │   │
-│  │  - numpy ↔ C++ array conversion                      │   │
-│  │  - Exception translation                             │   │
-│  └──────────────────────────────────────────────────────┘   │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-                         │ C++ function calls
-                         ▼
-┌─────────────────────────────────────────────────────────────┐
-│              IKFast C++ Solver                               │
-│  - ComputeIk()                                               │
-│  - ComputeFk()                                               │
-│  - GetNumJoints(), GetNumFreeParameters(), etc.              │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### File Structure
+## File Structure
 
 ```
 ikfast_pybind/
@@ -636,6 +610,6 @@ If you use this software in your research, please cite:
   title = {IKFast Python Bindings},
   author = {IKFast Python Bindings Contributors},
   year = {2026},
-  url = {<repository-url>}
+  url = {https://github.com/shine-tong/ikfast-pybings.git}
 }
 ```

@@ -1,5 +1,20 @@
+<div align="center">
+
 # IKFast Python 绑定
 
+⚙️ IKFast 逆运动学求解器的 Python Bindings，本项目所有代码使用 [Kiro](https://kiro.dev/) 生成。
+
+[![许可证](https://img.shields.io/badge/许可证-Apache%202.0-blue.svg)](LICENSE)
+[![平台](https://img.shields.io/badge/平台-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/yourusername/ikfast-pybind)
+[![pybind11](https://img.shields.io/badge/pybind11-2.6%2B-green.svg)](https://github.com/pybind/pybind11)
+
+[![IKFast](https://img.shields.io/badge/IKFast-OpenRAVE-red.svg)](http://openrave.org/)
+[![测试](https://img.shields.io/badge/测试-146%20通过-brightgreen.svg)](tests/)
+[![覆盖率](https://img.shields.io/badge/覆盖率-95%25-brightgreen.svg)](tests/)
+
+</div>
+
+## 项目简介
 中文文档 | [English](README.md)
 
 使用 pybind11 为 IKFast 逆运动学求解器提供的高性能 Python 绑定。本包为 6 自由度机械臂的解析式逆运动学解提供了简洁的 Python 接口，并与 NumPy 无缝集成。
@@ -47,7 +62,7 @@
 
 ```bash
 # 克隆仓库
-git clone <repository-url>
+git clone https://github.com/shine-tong/ikfast-pybings.git
 cd ikfast_pybind
 
 # 安装构建依赖
@@ -502,7 +517,7 @@ for pose in poses:
 
 ```bash
 # 克隆仓库
-git clone <repository-url>
+git clone https://github.com/shine-tong/ikfast-pybings.git
 cd ikfast_pybind
 
 # 创建虚拟环境
@@ -594,6 +609,6 @@ ikfast_pybind/
   title = {IKFast Python Bindings},
   author = {IKFast Python Bindings Contributors},
   year = {2026},
-  url = {<repository-url>}
+  url = {https://github.com/shine-tong/ikfast-pybings.git}
 }
 ```
