@@ -6,7 +6,7 @@ Build Issues
 
 **Problem**: ``error: Microsoft Visual C++ 14.0 or greater is required``
 
-**Solution**: Install Visual Studio Build Tools or Visual Studio with C++ support. See :doc:`guides/building` for details.
+**Solution**: Install Visual Studio Build Tools or Visual Studio with C++ support. See :doc:`Building <guides/building>` for details.
 
 ----
 
@@ -81,7 +81,7 @@ Getting Help
 
 If you encounter issues not covered here:
 
-1. Check the :doc:`guides/building` for detailed build instructions
+1. Check the :doc:`Building <guides/building>` for detailed build instructions
 2. Review the :doc:`examples/index` for usage patterns
 3. Ensure your inputs match the expected shapes and types
 4. Verify your C++ compiler and Python environment are properly configured

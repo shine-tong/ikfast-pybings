@@ -6,7 +6,7 @@
 
 **问题**：``error: Microsoft Visual C++ 14.0 or greater is required``
 
-**解决方案**：安装 Visual Studio Build Tools 或带有 C++ 支持的 Visual Studio。详见 :doc:`guides/building_cn`。
+**解决方案**：安装 Visual Studio Build Tools 或带有 C++ 支持的 Visual Studio。详见 :doc:`构建指南 <guides/building_cn>`。
 
 ----
 

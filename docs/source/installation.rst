@@ -16,7 +16,7 @@ Before installing, ensure you have:
 - **NumPy**: 1.20.0 or later
 - **pybind11**: 2.6.0 or later
 
-See :doc:`guides/building` for detailed build instructions and troubleshooting.
+See :doc:`Building <guides/building>` for detailed build instructions and troubleshooting.
 
 From Source
 -----------
