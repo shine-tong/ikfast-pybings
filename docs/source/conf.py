@@ -5,7 +5,13 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import sys
+import os
 import sphinx_rtd_theme
+
+# Mock imports for C extension modules when building docs
+# This allows Sphinx to build documentation without compiling C++ extensions
+autodoc_mock_imports = ['ikfast_pybind._ikfast_pybind']
 
 
 project = 'IKFast_Pybind'
