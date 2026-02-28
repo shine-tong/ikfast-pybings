@@ -1,0 +1,6 @@
+# Sphinx 文档构建依赖
+sphinx>=5.0
+sphinx-rtd-theme>=1.0
+
+# 用于 mock C++ 扩展模块，避免编译
+sphinx-autodoc-typehints>=1.12
